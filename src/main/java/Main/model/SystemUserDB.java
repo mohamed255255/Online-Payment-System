@@ -1,25 +1,25 @@
 package Main.model;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 
 @Entity
 @Table
-
 public class SystemUserDB {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int UserID;
     private String email ;
     private String password ;
+    ////private wallet UserWallet ; /// needs data serilization
+
+
 
     public SystemUserDB(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public SystemUserDB() {
-
-    }
+    public SystemUserDB() {}
 
     @Override
     public String toString() {

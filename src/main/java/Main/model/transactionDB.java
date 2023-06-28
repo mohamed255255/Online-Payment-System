@@ -1,5 +1,5 @@
 package Main.model;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table
@@ -7,10 +7,14 @@ import javax.persistence.*;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int transactionID ;
-    private  String type_of_service ;
-    private  String service_name ;
+    private  String ServiceType ;
+    private  String ServiceName ;
     private  String TransactionType ;
-    private  int UserID ;
+    private double amount ;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "UserID")
+    private SystemUserDB user;
 
 
     public void setId(int id) {

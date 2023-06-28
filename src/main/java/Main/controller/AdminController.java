@@ -1,10 +1,14 @@
 package Main.controller;
-import Main.Service.*;
+import Main.Service.AdminService;
+import Main.model.DiscountDB;
+import Main.model.RefundRequestDB;
+import Main.model.servicesDB;
+import Main.model.transactionDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import Main.model.*;
-
 import java.util.List;
+
+
 
 @RestController
 @RequestMapping(path = "/api")
@@ -17,10 +21,14 @@ public class AdminController {
     }
 
     @PostMapping("/addservice")
-    public void AddService(@RequestBody servicesDB service){
-        adminService.AddNewServiceProvider(service);
+    public void addNewService(@RequestBody servicesDB service){
+        adminService.addNewService(service);
     }
 
+    @PostMapping("/addDiscount")
+    public void addDiscount(@RequestBody DiscountDB discount){
+        adminService.addDiscount(discount);
+    }
 
     @GetMapping("/getAllRefundReq")
     public List<RefundRequestDB> GetAllRefundRequests(){return adminService.GetAllRefundRequests() ;}

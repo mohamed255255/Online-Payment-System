@@ -1,21 +1,18 @@
 package Main.model;
-import javax.persistence.*;
-
-
-
+import jakarta.persistence.*;
 @Entity
 @Table
 public class servicesDB {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int SerivceID ;
-    private  String service_name ;
-    private  String type_of_service ;
+    private  String ServiceName;
+    private  String ServiceType ;
 
-    public servicesDB(int id, String service_name, String type_of_service) {
+    public servicesDB(int id, String ServiceName, String type_of_service) {
         this.SerivceID = id;
-        this.service_name = service_name;
-        this.type_of_service = type_of_service;
+        this.ServiceName = ServiceName;
+        this.ServiceType = type_of_service;
     }
 
     public servicesDB() {}
@@ -24,23 +21,23 @@ public class servicesDB {
         this.SerivceID = id;
     }
 
-    public void setService_name(String service_name) {
-        this.service_name = service_name;
+    public void setServiceName(String serviceName) {
+        this.ServiceName = serviceName;
     }
 
     public void setType_of_service(String type_of_service) {
-        this.type_of_service = type_of_service;
+        this.ServiceType = type_of_service;
     }
 
     public int getId() {
         return SerivceID;
     }
 
-    public String getService_name() {
-        return service_name;
+    public String getServiceName() {
+        return ServiceName;
     }
 
     public String getType_of_service() {
-        return type_of_service;
+        return ServiceType;
     }
 }

@@ -38,7 +38,13 @@ public class UserController {
        return userService.search(type_of_service);
     }
 
+    @GetMapping("/checkDiscount")
+    List<DiscountDB> ShowAllDiscounts(){
+        return userService.ShowAllDiscounts();
+    }
 
-
-
+    @GetMapping("/addtowallet")
+    public void AddtoWallet(){
+        userService.AddtoWallet();
+    }
 }

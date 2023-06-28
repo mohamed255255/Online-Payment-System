@@ -1,5 +1,9 @@
 package Main.Service;
-import Main.model.*;
+
+import Main.model.DiscountDB;
+import Main.model.SystemUserDB;
+import Main.model.servicesDB;
+import Main.repository.DiscountRepository;
 import Main.repository.ServicesRepository;
 import Main.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,23 +13,21 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
 public class UserService {
 
     public final UserRepository UserRepository;
     public final ServicesRepository servicesRepository;
-
+    public final DiscountRepository discountRepository ;
     @Autowired
-    public UserService(UserRepository UserRepository , ServicesRepository servicesRepository) {
+    public UserService(UserRepository UserRepository , ServicesRepository servicesRepository, DiscountRepository discountRepository) {
         this.UserRepository = UserRepository;
         this.servicesRepository = servicesRepository;
+        this.discountRepository = discountRepository;
     }
 
-    /*public List<Systemuser> getUsers() {
-        return Repository.findAll();
-    }*/
-
-    public ResponseEntity<String> saveuser(SystemUserDB user ){
+    public ResponseEntity<String> saveuser(SystemUserDB user){
           Optional<SystemUserDB> userOptional = UserRepository.findUserByEmail(user.getEmail());
           if(!userOptional.isPresent()){
               UserRepository.save(user);
@@ -52,7 +54,13 @@ public class UserService {
        return servicesRepository.findAllMatchingServices(type_of_service);
     }
 
+    public List<DiscountDB> ShowAllDiscounts(){
+        return discountRepository.findAllDiscounts();
+    }
 
-
+    public void AddtoWallet(SystemUserDB User){
+        /// get the user wallet obj
+        /// use add funds function inside it to apply the add to wallet mechansim
+    }
 
 }
