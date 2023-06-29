@@ -1,20 +1,14 @@
 package Main.Service;
-
-import Main.model.DiscountDB;
-import Main.model.RefundRequestDB;
-import Main.model.servicesDB;
-import Main.model.transactionDB;
+import Main.model.*;
 import Main.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.sql.DataSource;
 import java.util.List;
+
 
 @Service
 public class  AdminService {
     @Autowired
-    private DataSource dataSource;
 
     public final ServicesRepository ServicesRepository;
     public final UserRepository userRepository ;
@@ -37,21 +31,19 @@ public class  AdminService {
     }
 
 
-    public void addNewService(servicesDB newService) {
+    public void addNewService(services newService) {
         ServicesRepository.save(newService);
     }
 
-
-    public void addDiscount(DiscountDB discount) {
+    public void addDiscount(Discount discount) {
         discountRepository.save(discount);
     }
 
-
-    public List<RefundRequestDB> GetAllRefundRequests(){
+    public List<RefundRequest> GetAllRefundRequests(){
          return refundRequestRepository.GetAllRefundRequests();
     }
 
-    public List<transactionDB> GetAllTransactions(){
+    public List<transaction> GetAllTransactions(){
         return transactionRepository.GetAllTransactions();
     }
 

@@ -1,9 +1,9 @@
 package Main.controller;
 import Main.Service.AdminService;
-import Main.model.DiscountDB;
-import Main.model.RefundRequestDB;
-import Main.model.servicesDB;
-import Main.model.transactionDB;
+import Main.model.Discount;
+import Main.model.RefundRequest;
+import Main.model.services;
+import Main.model.transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -21,21 +21,21 @@ public class AdminController {
     }
 
     @PostMapping("/addservice")
-    public void addNewService(@RequestBody servicesDB service){
+    public void addNewService(@RequestBody services service){
         adminService.addNewService(service);
     }
 
     @PostMapping("/addDiscount")
-    public void addDiscount(@RequestBody DiscountDB discount){
+    public void addDiscount(@RequestBody Discount discount){
         adminService.addDiscount(discount);
     }
 
     @GetMapping("/getAllRefundReq")
-    public List<RefundRequestDB> GetAllRefundRequests(){return adminService.GetAllRefundRequests() ;}
+    public List<RefundRequest> GetAllRefundRequests(){return adminService.GetAllRefundRequests() ;}
 
 
     @GetMapping("/GetTransactions")
-    public List<transactionDB> GetAllTransactions(){ return adminService.GetAllTransactions() ;}
+    public List<transaction> GetAllTransactions(){ return adminService.GetAllTransactions() ;}
 
 }
 

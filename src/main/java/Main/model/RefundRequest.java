@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Table
 @Entity
-public class RefundRequestDB {
+public class RefundRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int RefundRequestID ;
@@ -13,12 +13,12 @@ public class RefundRequestDB {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "User_Fk")
-    private SystemUserDB user;
+    private SystemUser user;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Transaction_Fk")
-    private transactionDB trans;
+    private transaction trans;
 
     public void setId(int id) {
         this.RefundRequestID = id;

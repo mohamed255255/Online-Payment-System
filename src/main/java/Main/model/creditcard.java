@@ -1,7 +1,16 @@
 package Main.model;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.time.LocalDate;
 
+
+
+@Entity
+@Table
 public class creditcard {
+    @Id
+    private int id ;
     private String cardNumber ;
     private LocalDate ExpiryDate ;
     private String CVV ;
@@ -16,39 +25,7 @@ public class creditcard {
         this.creditcardName = creditcardName;
         this.currentBalance = currentBalance;
     }
-
-
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
-    public void setCardNumber(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    public LocalDate getExpiryDate() {
-        return ExpiryDate;
-    }
-
-    public void setExpiryDate(LocalDate expiryDate) {
-        ExpiryDate = expiryDate;
-    }
-
-    public String getCVV() {
-        return CVV;
-    }
-
-    public void setCVV(String CVV) {
-        this.CVV = CVV;
-    }
-
-    public String getCreditcardName() {
-        return creditcardName;
-    }
-
-    public void setCreditcardName(String creditcardName) {
-        this.creditcardName = creditcardName;
-    }
+    public creditcard(){}
 
     public double getCurrentBalance() {
         return currentBalance;

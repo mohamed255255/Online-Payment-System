@@ -1,9 +1,10 @@
 package Main.model;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table
- public class transactionDB {
+ public class transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int transactionID ;
@@ -12,11 +13,16 @@ import jakarta.persistence.*;
     private  String TransactionType ;
     private double amount ;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "UserID")
-    private SystemUserDB user;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "User_fk")
+    private SystemUser user;
 
-
+   public transaction(String ServiceType , String ServiceName , String TransactionType){
+       this.ServiceType = ServiceType ;
+       this.ServiceName = ServiceName ;
+       this.TransactionType = TransactionType;
+   }
+    public transaction(){}
     public void setId(int id) {
         this.transactionID = id;
     }

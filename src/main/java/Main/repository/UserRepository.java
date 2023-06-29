@@ -8,8 +8,8 @@ import java.util.Optional;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<SystemUserDB, Integer>{
+public interface UserRepository extends JpaRepository<SystemUser, Integer>{
 
-     @Query("SELECT u FROM SystemUserDB u where u.email =?1")
-     Optional<SystemUserDB> findUserByEmail(String email) ;
+     @Query("SELECT u FROM SystemUser u where u.email =?1")
+     Optional<SystemUser> findUserByEmail(String email) ;
 }

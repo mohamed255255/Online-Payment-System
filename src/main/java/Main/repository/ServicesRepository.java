@@ -7,8 +7,8 @@ import java.util.List;
 
 
 @Repository
-public interface ServicesRepository extends JpaRepository<servicesDB, Integer> {
+public interface ServicesRepository extends JpaRepository<services, Integer> {
 
-    @Query("SELECT s FROM servicesDB s WHERE s.ServiceType = ?1")
-    List<servicesDB> findAllMatchingServices(String ServiceType);
+    @Query("SELECT s FROM services s WHERE s.ServiceType = ?1")
+    List<services> findAllMatchingServices(String ServiceType);
 }

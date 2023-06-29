@@ -4,22 +4,21 @@ import jakarta.persistence.*;
 
 @Entity
 @Table
-public class SystemUserDB {
+public class SystemUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int UserID;
     private String email ;
     private String password ;
-    ////private wallet UserWallet ; /// needs data serilization
 
 
 
-    public SystemUserDB(String email, String password) {
+    public SystemUser(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public SystemUserDB() {}
+    public SystemUser() {}
 
     @Override
     public String toString() {
@@ -52,6 +51,14 @@ public class SystemUserDB {
 
     public int getId() {
         return UserID;
+    }
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "wallet_fk")
+    private wallet wallet;
+
+    public wallet getWallet() {
+        return wallet;
     }
 }
 
