@@ -19,13 +19,13 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    String signup(@RequestBody SystemUser user){
+    String signup(@RequestBody User user){
         userService.saveuser( user );
         return "you successfully signed up";
     }
 
     @PostMapping("/signin")
-    ResponseEntity<String> signIn(@RequestBody SystemUser user) {
+    ResponseEntity<String> signIn(@RequestBody User user) {
         return userService.login(user);
     }
 
@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @PostMapping("/pay")
-    public void payforService(services service , SystemUser user){
+    public void payforService(services service , User user){
         userService.payforService(service , user);
     }
 

@@ -32,18 +32,18 @@ public class UserService {
         this.refundRequestRepository = refundRequestRepository;
     }
 
-    public ResponseEntity<String> saveuser(SystemUser user){
-        Optional<SystemUser> userOptional = UserRepository.findUserByEmail(user.getEmail());
+    public ResponseEntity<String> saveuser(User user){
+        Optional<User> userOptional = UserRepository.findUserByEmail(user.getEmail());
           if(!userOptional.isPresent()){
               UserRepository.save(user);
               return ResponseEntity.ok("Sign-up successful");
           }
         return ResponseEntity.badRequest().body("the email is used before");
     }
-    public ResponseEntity<String> login(SystemUser user ){
-        Optional<SystemUser> userOptional = UserRepository.findUserByEmail(user.getEmail());
+    public ResponseEntity<String> login(User user ){
+        Optional<User> userOptional = UserRepository.findUserByEmail(user.getEmail());
         if (userOptional.isPresent()) {
-            SystemUser foundUser = userOptional.get();
+            User foundUser = userOptional.get();
             if (foundUser.getPassword().equals(user.getPassword())) {
                 return ResponseEntity.ok("Sign-in successful");
             }else{
@@ -64,12 +64,12 @@ public class UserService {
     }
 
     public void AddtoWallet(int userId, creditcard creditCard , int amount)  {
-        SystemUser user = UserRepository.findById(userId)
+        User user = UserRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + userId));
         wallet wallet = user.getWallet();
         wallet.addFunds(creditCard , amount );
     }
-    public void payforService(services service , SystemUser user ){
+    public void payforService(services service , User user ){
          Discount discount = discountRepository.findByServiceType(service.getServiceType());
          if(discount != null){
             double PriceAfterDiscount =  discount.getDiscountPercentage() * service.getSerivcePrice() ;

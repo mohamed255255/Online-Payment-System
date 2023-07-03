@@ -13,7 +13,7 @@ public class RefundRequest {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "User_Fk")
-    private SystemUser user;
+    private User user;
 
 
     @ManyToOne(fetch = FetchType.LAZY)

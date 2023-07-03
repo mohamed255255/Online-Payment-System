@@ -15,7 +15,7 @@ import jakarta.persistence.*;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "User_fk")
-    private SystemUser user;
+    private User user;
 
    public transaction(String ServiceType , String ServiceName , String TransactionType){
        this.ServiceType = ServiceType ;

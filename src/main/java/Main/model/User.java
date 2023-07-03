@@ -3,8 +3,8 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table
-public class SystemUser {
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int UserID;
@@ -13,12 +13,12 @@ public class SystemUser {
 
 
 
-    public SystemUser(String email, String password) {
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public SystemUser() {}
+    public User() {}
 
     @Override
     public String toString() {
