@@ -11,22 +11,25 @@ public class User {
     private String email ;
     private String password ;
 
-
-
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
-
-    public User() {}
+    private String phonenumber;
 
     @Override
     public String toString() {
-        return "Systemuser{" +
-                "id=" + UserID +
+        return "User{" +
+                "UserID=" + UserID +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", phonenumber='" + phonenumber + '\'' +
+                ", wallet=" + wallet +
                 '}';
+    }
+
+    public int getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(int userID) {
+        UserID = userID;
     }
 
     public String getEmail() {
@@ -45,12 +48,16 @@ public class User {
         this.password = password;
     }
 
-    public void setId(int id) {
-        this.UserID = id;
+    public String getPhonenumber() {
+        return phonenumber;
     }
 
-    public int getId() {
-        return UserID;
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public void setWallet(Main.model.wallet wallet) {
+        this.wallet = wallet;
     }
 
     @OneToOne(fetch = FetchType.LAZY)

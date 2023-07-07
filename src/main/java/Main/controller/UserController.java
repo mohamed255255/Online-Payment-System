@@ -8,7 +8,8 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/QuickPay")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 
 public class UserController {
 
