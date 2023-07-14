@@ -1,7 +1,6 @@
 package Main.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
 
@@ -10,11 +9,53 @@ import java.time.LocalDate;
 @Table
 public class creditcard {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id ;
     private String cardNumber ;
     private LocalDate ExpiryDate ;
     private String CVV ;
     private String creditcardName ;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public LocalDate getExpiryDate() {
+        return ExpiryDate;
+    }
+
+    public void setExpiryDate(LocalDate expiryDate) {
+        ExpiryDate = expiryDate;
+    }
+
+    public String getCVV() {
+        return CVV;
+    }
+
+    public void setCVV(String CVV) {
+        this.CVV = CVV;
+    }
+
+    public String getCreditcardName() {
+        return creditcardName;
+    }
+
+    public void setCreditcardName(String creditcardName) {
+        this.creditcardName = creditcardName;
+    }
+
     private double currentBalance;
 
 

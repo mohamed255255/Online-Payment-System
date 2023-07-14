@@ -7,7 +7,10 @@ import jakarta.persistence.*;
 @Entity
 public class wallet {
 @Id
-private int id ;
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private int walletID ;
+
+
 private double balance;
 
 
@@ -24,7 +27,7 @@ public void addFunds(creditcard cc , int amount ) {
 }
 
     public void setId(int id) {
-        this.id = id;
+        this.walletID = id;
     }
 
     public void setBalance(double balance) {
@@ -32,7 +35,7 @@ public void addFunds(creditcard cc , int amount ) {
     }
 
     public int getId() {
-        return id;
+        return walletID;
     }
 
     public double getBalance() {
@@ -47,13 +50,23 @@ public void addFunds(creditcard cc , int amount ) {
         return transactions;
     }
 
-    public wallet(double myCurrentBalance, creditcard cc) {
+    public wallet(double myCurrentBalance) {
         balance = myCurrentBalance;
-        this.cc = cc;
     }
     public wallet(){
         balance = 0.0;
-        cc = new creditcard();
+    }
+
+    public void setCc(creditcard cc) {
+        this.cc = cc;
+    }
+
+    public void setTransactions(transaction transactions) {
+        this.transactions = transactions;
+    }
+
+    public wallet(creditcard cc) {
+        this.cc = cc;
     }
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cc_fk")
@@ -62,5 +75,8 @@ public void addFunds(creditcard cc , int amount ) {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "transaction_fk")
     private transaction transactions; /// to see my previous transactions
+
+
+
 
 }

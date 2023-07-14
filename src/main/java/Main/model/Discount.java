@@ -10,6 +10,31 @@ public class Discount {
     private int DiscountID ;
     private String DiscountType;
     private double DiscountPercentage ;
+
+    public String getDiscountType() {
+        return DiscountType;
+    }
+
+    public void setDiscountPercentage(double discountPercentage) {
+        DiscountPercentage = discountPercentage;
+    }
+
+    public String getServiceType() {
+        return ServiceType;
+    }
+
+    public void setServiceType(String serviceType) {
+        ServiceType = serviceType;
+    }
+
+    public services getService() {
+        return service;
+    }
+
+    public void setService(services service) {
+        this.service = service;
+    }
+
     private String ServiceType ;
 
 

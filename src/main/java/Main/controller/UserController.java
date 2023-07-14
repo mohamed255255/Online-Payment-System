@@ -9,20 +9,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/QuickPay")
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
 
 public class UserController {
 
     private final UserService userService ;
     @Autowired
     public UserController(UserService userService){
-         this.userService = userService ;
+        this.userService = userService ;
     }
 
     @PostMapping("/signup")
-    String signup(@RequestBody User user){
-        userService.saveuser( user );
-        return "you successfully signed up";
+    public ResponseEntity<String> signup (@RequestBody User user){
+        return  userService.signup( user );
     }
 
     @PostMapping("/signin")
@@ -32,8 +31,8 @@ public class UserController {
 
 
     @GetMapping("/search")
-    List<services> SearchServiceByName(@RequestParam("type_of_service") String type_of_service){
-       return userService.search(type_of_service);
+    List<services> SearchServiceByName(@RequestParam("servicename") String servicename){
+        return userService.search(servicename);
     }
 
     @GetMapping("/checkDiscount")
@@ -41,7 +40,7 @@ public class UserController {
         return userService.ShowAllDiscounts();
     }
 
-    @PostMapping("/addtowallet")
+  /*  @PostMapping("/addtowallet")
     public void AddtoWallet(@RequestParam("userId") int userId,
                             @RequestParam("creditCard") creditcard creditCard,
                             @RequestParam("amount") int amount) {
@@ -58,6 +57,5 @@ public class UserController {
     public void AskForRefund(RefundRequest RefundRequest){
         userService.AskForRefund(RefundRequest);
     }
-
+*/
 }
-

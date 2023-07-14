@@ -8,15 +8,24 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int UserID;
+    private String firstname ;
+    private String lastname ;
     private String email ;
     private String password ;
 
     private String phonenumber;
 
+
+    public User(){
+
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "UserID=" + UserID +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phonenumber='" + phonenumber + '\'' +
@@ -60,8 +69,25 @@ public class User {
         this.wallet = wallet;
     }
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "wallet_fk")
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "walletID", unique = true)
     private wallet wallet;
 
     public wallet getWallet() {

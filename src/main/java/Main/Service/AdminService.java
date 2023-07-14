@@ -32,6 +32,7 @@ public class  AdminService {
 
 
     public void addNewService(services newService) {
+        newService.LowerCaseServiceName();
         ServicesRepository.save(newService);
     }
 

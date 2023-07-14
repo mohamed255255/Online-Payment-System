@@ -1,0 +1,314 @@
+
+/*//////////////Header*/
+header {
+  height: 12vh; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: #1b6ca1;
+  position: relative;
+}
+
+.logo {
+  position: relative;
+  float: left;
+  margin-left: 0px;
+  width: 10vw; /* set the width to 10% of the viewport width */
+  height: 7vh; /* set the height to 5% of the viewport height */
+}
+
+header img {
+  position: relative;
+  top: -8vh; /* set the distance between the top of the logo and the top of the viewport */
+  left: 0;
+  width: 150%;
+  height: 400%;
+  filter: brightness(100%);
+}
+
+
+/*/////////////////////////////Header buttons*/
+.header-buttons {
+  display: flex;
+  font-size: 19px;
+  font-family: "Helvetica";
+  margin-top: -10px;  
+  margin-left: 250px;
+}
+.header-buttons a{
+  color : white;
+  text-decoration: none;
+  padding: 40px 30px 20px 20px;
+}
+
+/* ////////////////////////////////body */
+
+body {
+  background-color: white;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+/* //////////////////////////Search bar*/
+  .search-bar{
+    width : 800px ;
+    height: 50px;
+    background: white;
+    border: #e5e1e1 solid;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);    
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    
+    margin: 50px 40px 30px 400px ;
+
+    
+  }
+
+  .search-bar input{
+    color :black ;
+    background: transparent;
+    flex: 1 ;
+    border : 0 ;
+    outline : none ;
+    padding : 24px 20px ;
+    font-size: 20px ;
+    position: relative;
+  }
+
+  ::placeholder{
+    color :rgb(149, 145, 145) ;
+    position: fixed;
+    
+  }
+/*/////////////////////////////// SEARCH RESULTS */
+#search-results {
+  display: block;
+  background-color: white;
+  border-radius: 5px;
+  border: #e5e1e1 solid;
+  opacity: 0.7;
+  position: absolute;
+  left: 410px;
+  top: 189px;
+  right: 0;
+  display: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 795px;
+  max-height: 280px;
+}
+
+#results-list {
+  list-style: none;
+  padding : 0px 350px 50px 20px ;
+  width: 100%;
+
+  ;
+}
+#results-list li{
+  border-bottom: 1px solid #c0baba;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  width : 100%;
+  overflow: visible;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+
+  
+}
+#results-list li a{
+  position: relative;
+  left : 60px;
+  bottom: 3px;
+}
+
+#results-list [role="button"]:hover {
+  background-color: rgb(245, 242, 242);
+}
+
+[role="button"] {
+  display: inline-block;
+  padding: 2px 5px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+#results-list img{
+  position: relative;
+  max-width: 45px;
+  max-height: 45px;
+  width: auto;
+  height: auto;
+  bottom: 20px;
+  cursor: pointer;
+
+}
+
+
+
+/*//////////////////////////////Left side*/
+
+.left-column-div{
+  background-color: white;
+  border-radius: 10px;
+  width: 250px;
+  height: 300px;
+  margin-top: -98px;
+  margin-left: 107px;
+
+  border-left: 1px solid rgba(0, 0, 0, 0.09);
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  border-right: 1px solid rgba(0, 0, 0, 0.09);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  position: relative;
+
+}
+.left-column-div p{
+  padding-left:20px ;
+  color: #1b6ca1;
+}
+.left-column-div ul{
+  padding : 20px ;
+  list-style: none;
+  cursor: pointer;
+  border-top: 1px solid #ccc;
+
+}
+.left-column-div ul li {
+  text-decoration: none;
+  margin-bottom: 20px;  
+}
+a{
+   text-decoration: none;
+   color : black;
+}
+
+/*///////////////////Right side */
+.dropdown label{
+  position: absolute;
+  color:white ;
+  left : 1405px ;
+  top: -70px;
+  font-size: 17px;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style the dropdown button text */
+.dropdown-button {
+  background-color: #1b6ca1;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 1400px;
+  top: -50px;
+}
+.fa-solid{
+  position: absolute;
+  left: 1485px;
+  top : -50px;  
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 1360px;
+  top: 1px;
+  border-radius: 2px;
+  background: white;
+  border-radius: 10px;
+
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+  width: 160px;
+  height: 160px;
+
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 18px 17px  17px  20px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.logout{
+  border-top: 2px solid #ccc;
+}
+
+
+
+/*Footer*/
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f3f0f0;
+  padding: 20px  500px  10px 100px;
+  margin-top: 200px;
+}
+
+.footer ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;  
+}
+.footer li{
+  padding-bottom: 5px;
+}
+
+.footer a {
+  margin-bottom: 15px; /* Adds a 5px margin below the first link in the list */
+  
+}
+
+.footer a:not(.footernonlinks a):not(.maintitles) {
+
+    opacity : 0.5;  
+}
+.footernonlinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+
+}
+.language{
+  position: relative;
+  left: 200px;
+  bottom: 116px;  
+}
+.followus{
+
+  left: 1200px;
+  bottom: 116px;  
+}
+
+

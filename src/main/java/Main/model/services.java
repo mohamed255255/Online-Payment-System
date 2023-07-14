@@ -6,17 +6,20 @@ public class services {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int SerivceID ;
-    private  String ServiceName;
-    private  String ServiceType ;
-    private double serivcePrice ;
+    private  String servicename;
+    private double fees ;
 
-    public services(int id, String ServiceName, String type_of_service) {
-        this.SerivceID = id;
-        this.ServiceName = ServiceName;
-        this.ServiceType = type_of_service;
+    public String getServicetype() {
+        return servicetype;
     }
 
-    public services() {}
+    public void setServicetype(String servicetype) {
+        this.servicetype = servicetype;
+    }
+
+    private String img_path ;
+
+    private String servicetype ;
 
 
     public int getSerivceID() {
@@ -27,16 +30,44 @@ public class services {
         SerivceID = serivceID;
     }
 
-    public String getServiceName() {
-        return ServiceName;
+    public String getServicename() {
+        return servicename;
     }
 
-    public String getServiceType() {
-        return ServiceType;
+    public void setServicename(String servicename) {
+        this.servicename = servicename;
     }
 
-    public double getSerivcePrice() {
-        return serivcePrice;
+    public double getFees() {
+        return fees;
     }
 
+    public void setFees(double fees) {
+        this.fees = fees;
+    }
+
+
+
+    public String getImg_path() {
+        return img_path;
+    }
+
+    public void setImg_path(String img_path) {
+        this.img_path = img_path;
+    }
+
+    @Override
+    public String toString() {
+        return "services{" +
+                "SerivceID=" + SerivceID +
+                ", ServiceName='" + servicename + '\'' +
+                ", fees=" + fees +
+                ", serivceFeesInterval='"  + '\'' +
+                ", img_path='" + img_path + '\'' +
+                '}';
+    }
+
+    public void LowerCaseServiceName(){
+        servicename = servicename.toLowerCase();
+    }
 }

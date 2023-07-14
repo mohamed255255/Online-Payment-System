@@ -17,7 +17,7 @@ signUpForm.addEventListener('submit', async (e) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
-  });
+  } );
 
   if (response.status === 400) {
     const errorMessage = document.createElement('span');

@@ -1,3 +1,5 @@
+const firstnameInput = document.querySelector('#firstname');
+const secondnameInput = document.querySelector('#secondname');
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
 const repeatedPasswordInput = document.querySelector('#repeated-password');
@@ -7,12 +9,16 @@ const signUpForm = document.querySelector('#signup-form');
 signUpForm.addEventListener('submit', (e) => {
    e.preventDefault();
 
+   const firstname = firstnameInput.value;
+   const secondname = secondnameInput.value;
    const email = emailInput.value;
    const RepeatedPassword =repeatedPasswordInput.value;
    const password = passwordInput.value;
    const phoneNumber = phoneNumberInput.value;
 
    const data = {
+      firstname : firstname,
+      secondname: secondname,
       email: email,
       password: password,
       phonenumber: phoneNumber
